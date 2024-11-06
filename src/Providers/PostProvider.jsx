@@ -45,13 +45,9 @@ const PostProvider = ({children}) => {
     
    return (
 
-
-      <PostContext.Provider value = {{searchedPosts,searchQuery,setSearchQuery,handleAddPost,handleClearPosts}}>
-      
+      <PostContext.Provider value = {{posts,searchQuery,setSearchQuery,handleAddPost,handleClearPosts}}>
       {children}
-      
       </PostContext.Provider> 
-
 
    )
 
@@ -63,6 +59,9 @@ function usePosts()
 {
 
   const posts = React.useContext(PostContext)
+
+  if(!posts)
+    throw new Error("The context is used outside the PostProvider")
 
   return posts
 

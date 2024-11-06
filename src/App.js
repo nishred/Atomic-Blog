@@ -77,7 +77,7 @@ function SearchPosts() {
 
 function Results() {
 
-  const {searchedPosts:posts} = usePosts()
+  const {posts} = usePosts()
 
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
@@ -137,8 +137,9 @@ function FormAddPost() {
 
 function List() {
 
-  const {searchedPosts:posts} = usePosts()
+ const {posts} = usePosts()
 
+   
   return (
     <ul>
       {posts.map((post, i) => (
